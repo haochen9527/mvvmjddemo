@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.example.mvvmdemo.ui.main.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        
+        <FrameLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/line" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#DDDDDD"
+            android:layout_above="@+id/mainTabBar" />
+
+        <com.qinjie.mainnavigatetabbar.MainNavigateTabBar
+            android:id="@+id/mainTabBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_alignParentBottom="true"
+            app:containerId="@+id/main_container"
+            app:navigateTabSelectedTextColor="#FF6800"
+            app:navigateTabTextColor="#333333"
+            app:navigateTabTextSize="10sp"
+            app:navigateTabIconTopPadding="5dp"
+            app:navigateTabIconBottomPadding="2dp"
+            app:navigateTabTitleTopPadding="0dp"
+            app:navigateTabTitleBottomPadding="2dp" />
+
+    </RelativeLayout>
+</layout>

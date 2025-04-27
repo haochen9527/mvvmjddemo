@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.example.mvvmdemo.ui.login.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.login.LoginActivity">
+
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:src="@mipmap/ic_launcher"
+            onClickCommand="@{loginViewModel.imageChangeCommand}"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#3399ff"
+                android:hint="用户名"
+                android:padding="10dp"
+                android:text="@={loginViewModel.mUsernameField}"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                onClickCommand="@{loginViewModel.clearUsernameCommand}"/>
+
+            <ImageView
+                android:id="@+id/iv_clearUserName"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/icon_delete"
+                />
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#3399ff"
+                android:hint="密码"
+                android:padding="10dp"
+                android:text="@={loginViewModel.mPasswordField}"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:inputType="textPassword" />
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="50dp"
+                android:src="@mipmap/icon_delete"
+                android:layout_toLeftOf="@+id/iv_eye"
+                onClickCommand="@{loginViewModel.clearPasswordCommand}" />
+
+
+            <!-- 密码可见按钮 -->
+            <ImageView
+                android:id="@+id/iv_eye"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/icon_eye_close"
+                onClickCommand="@{loginViewModel.mPasswordSwitchCommand}"/>
+        </RelativeLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="登录"
+            onClickCommand="@{loginViewModel.loginCommand}" />
+
+
+    </LinearLayout>
+</layout>
