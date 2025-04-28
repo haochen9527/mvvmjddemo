@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="toolbarViewModel"
+            type="com.example.mvvmdemo.ui.base.ToolbarViewModel" />
+
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FF6800"
+        binding:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:visibility="@{toolbarViewModel.leftIconVisibleObservable}"
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="?selectableItemBackground"
+                android:padding="15dp"
+                android:src="@mipmap/icon_title_back"
+                binding:onClickCommand="@{toolbarViewModel.backOnClick}" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxEms="12"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textSize="19sp"
+                android:text="@{toolbarViewModel.titleText}" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_title"
+                android:layout_marginLeft="2dp">
+
+                <ImageView
+                    android:visibility="@{toolbarViewModel.rightIconVisibleObservable}"
+                    android:id="@+id/iv_right_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackground"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:src="@{toolbarViewModel.rightIcon}"
+                    binding:onClickCommand="@{toolbarViewModel.rightIconOnClick}" />
+
+                <TextView
+                    android:visibility="@{toolbarViewModel.rightTextVisibleObservable}"
+                    android:id="@+id/tv_right_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:background="?selectableItemBackground"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:text="@{toolbarViewModel.rightText}"
+                    binding:onClickCommand="@{toolbarViewModel.rightTextOnClick}" />
+
+                <TextView
+                    android:visibility="@{toolbarViewModel.rightIconTextVisibleObservable}"
+                    android:id="@+id/tv_right_icon_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@{toolbarViewModel.rightIcon}"
+                    android:drawablePadding="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:background="?selectableItemBackground"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:text="@{toolbarViewModel.rightText}"
+                    binding:onClickCommand="@{toolbarViewModel.rightIconTextOnClick}" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</layout>
+
